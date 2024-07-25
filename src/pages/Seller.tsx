@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Seller = () => {
   return (
-    <section className="p-6 flex flex-col gap-5 relative h-max-screen">
+    <section className="p-6 flex flex-col gap-5 relative h-screen h-max-screen">
       <nav className="flex flex-row justify-between">
         <Link to={"/shop"}>
           <IoIosArrowBack size={24} />
@@ -22,7 +22,7 @@ const Seller = () => {
           </span>
           <h1 className="text-3xl font-semibold capitalize">Thrift by Mso😊</h1>
         </div>
-
+        
         <div>
           <p className="line-clamp-3 text-[grey] text-sm">
             Satisfaction Guaranteed. Return or exchange any order within 30

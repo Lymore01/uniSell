@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AddProduct = () => {
   return (
-    <section className="p-6 flex flex-col gap-5 relative h-max-screen">
+    <section className="p-6 flex flex-col gap-5 relative h-screen h-max-screen">
       <nav className="flex flex-row justify-between">
         <Link to={"/shop/admin"}>
           <IoIosArrowBack size={24} />

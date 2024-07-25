@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoMdCloseCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../contexts/ThemeProvider";
 
 const Cart = () => {
+  const [theme] = useContext(ThemeContext);
+
   return (
     <section className="p-6 flex flex-col gap-5 relative">
       <nav className="flex flex-row justify-between">
@@ -48,15 +52,15 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="fixed bottom-0 left-0 w-full bg-[white] p-4">
+        <div className={`fixed bottom-0 left-0 w-full ${theme === "light" ? "bg-[white]" : "bg-secondary"} p-4`}>
           <hr />
           <div className="flex justify-between items-center mt-4">
             <span className="font-semibold text-3xl text-[green]/80">
               $50.00
             </span>
             <div className="flex justify-between items-center">
-              <Link to={"/shop/order-details"} className="flex py-4 px-6 cursor-pointer rounded-lg text-base items-center bg-secondary">
-                <span className="text-[white]">Checkout</span>
+              <Link to={"/shop/order-details"} className={`flex py-4 px-6 cursor-pointer rounded-lg text-base items-center ${ theme === "dark" ? "bg-primary text-[black]" : "bg-secondary text-[white]" }`}>
+                <span className="font-semibold">Checkout</span>
               </Link>
             </div>
           </div>

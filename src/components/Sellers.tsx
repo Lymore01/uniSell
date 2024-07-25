@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeProvider";
+
 const Sellers = ({
   shopLogo,
   shopName,
@@ -7,8 +10,9 @@ const Sellers = ({
   shopName: string;
   shopDescription: string;
 }) => {
+  const [theme] = useContext(ThemeContext);
   return (
-    <div className="flex flex-col items-center gap-3 bg-secondary w-[150px] min-w-[150px] h-[200px] rounded-lg p-4 shadow-md text-[white]"
+    <div className={`flex flex-col items-center gap-3 ${theme === "light" ? "bg-secondary": "bg-primary "}  w-[150px] min-w-[150px] h-[200px] rounded-lg p-4 shadow-md text-[white]`}
     onClick={()=>{
       window.location.href = "/shop/seller/1"
     }}

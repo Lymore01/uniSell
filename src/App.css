@@ -20,7 +20,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: transparent;
   border-radius: 6px;
 }
 

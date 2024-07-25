@@ -1,7 +1,12 @@
-// import { MdDarkMode } from "react-icons/md";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { MdDarkMode } from "react-icons/md";
+import { useContext } from "react";
 import { MdLightMode } from "react-icons/md";
+import { ThemeContext } from "../../contexts/ThemeProvider";
 
-const TopNav = ({ title } : {title:string}) => {
+const TopNav = ({ title }: { title: string }) => {
+  const [theme, setTheme] = useContext(ThemeContext);
+
   return (
     <section className="w-full flex items-center justify-between flex-row p-2 rounded-lg text-secondary">
       <div className="flex flex-col">
@@ -9,14 +14,24 @@ const TopNav = ({ title } : {title:string}) => {
         <h1 className="font-semibold text-xl">{title} 🎉</h1>
       </div>
       <div className="flex space-x-4 items-end justify-end">
-        <div>
-          <MdLightMode size={24}/>
+        <div
+          onClick={() => {
+            setTheme(theme === "light" ? "dark" : "light");
+          }}
+        >
+          {theme === "light" ? (
+            <MdDarkMode size={24} />
+          ) : (
+            <MdLightMode size={24} />
+          )}
         </div>
       </div>
     </section>
-  )
+  );
+};
+
+export default TopNav;
+
+{
+  /* <h1 className="font-semibold text-xl">Lets go! 🎉</h1> */
 }
-
-export default TopNav
-
-{/* <h1 className="font-semibold text-xl">Lets go! 🎉</h1> */}

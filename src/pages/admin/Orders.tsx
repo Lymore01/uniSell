@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Orders = () => {
   return (
-    <section className="p-6 flex flex-col gap-5 relative h-max-screen">
+    <section className="p-6 flex flex-col gap-5 relative h-screen h-max-screen">
       <nav className="flex flex-row justify-between">
         <Link to={"/shop/admin"}>
           <IoIosArrowBack size={24} />
@@ -15,11 +15,11 @@ const Orders = () => {
           <CiMenuKebab size={24} />
         </span>
       </nav>
-      <div className="w-full p-4 bg-[white] h-auto justify-between flex items-center border border-[grey]/10">
+      <div className="w-full p-4 bg-[transparent] h-auto justify-between flex items-center border border-[grey]/10">
         <input
           type="text"
           placeholder="search..."
-          className="w-full outline-none placeholder:text-sm"
+          className="w-full outline-none placeholder:text-sm bg-[transparent]"
         />
         <IoSearchOutline size={24} />
       </div>
