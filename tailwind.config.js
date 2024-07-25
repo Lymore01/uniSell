@@ -6,8 +6,8 @@ export default {
   ],
   theme: {
     colors:{
-      primary:"#171717",
-      secondary:"#242424"
+      primary:"#e3e7af",
+      secondary:"#001514"
     },
     textColor:{
       primary:{
