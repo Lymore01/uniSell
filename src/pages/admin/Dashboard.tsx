@@ -49,11 +49,11 @@ const Dashboard = () => {
                   $50.00
                 </span>
               </div>
-              <div className="w-full flex items-center justify-center relative">
+              <div className="w-full flex centreing relative">
                 <div className="w-[70%] mx-auto h-auto px-2 flex justify-between items-center">
                   <span className="font-semibold">1</span>
                 </div>
-                <div className=" w-full h-4 flex items-center justify-center">
+                <div className="w-full h-4 flex centreing">
                   <div className="flex py-2 px-4 cursor-pointer rounded-lg text-base items-center bg-[white] shadow-md">
                     <span className="text-[red]">X</span>
                   </div>

@@ -4,17 +4,15 @@
 
 @layer base {
   html {
-    font-family: "Cinzel", serif;
     font-family: "Poppins", sans-serif;
-    font-family: "Roboto Serif", serif;
-    font-family: "Montserrat", sans-serif;
-    font-family: "Poppins", sans-serif;
-    background-color: white;
-
-    /* background-color: #001514; */
-    /* background-color: #E3E7AF; */
+    background-color: #001514;
+  }
+  .centreing {
+    @apply flex items-center justify-center;
   }
 }
+
+
 ::-webkit-scrollbar {
   width: 6px;
 }

@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
+import { ProductProps } from "../components/Product";
+
 
 const useFetch = (url: string) => {
-  const [prod, setData] = useState([]);
+  const [prod, setData] = useState<ProductProps[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     async function fetchProducts() {
+      setLoading(true);
+
       try {
         const response = await fetch(url, {
           method: "GET",
         });
-        setLoading(true);
         const results = await response.json();
         if (!results) {
           setError("Products not found");

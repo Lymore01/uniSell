@@ -1,3 +1,13 @@
+export type ProductProps = {
+  image: string;
+  title: string;
+  category: string;
+  price: number;
+  id:number;
+  onclick:()=>void;
+}
+
+
 const Product = ({
   image,
   title,
@@ -5,13 +15,7 @@ const Product = ({
   price,
   onclick
 
-}: {
-  image: string;
-  title: string;
-  category: string;
-  price: number;
-  onclick:()=>void;
-}) => {
+}: ProductProps) => {
   return (
     <div className="flex flex-col gap-3 bg-white w-[150px] h-full rounded-lg p-2 shadow-md" onClick={onclick}>
     <img
