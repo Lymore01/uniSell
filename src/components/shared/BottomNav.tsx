@@ -15,7 +15,7 @@ const BottomNav = () => {
         {bottomNavItems.map(({ id, icon, title, active, href }) => (
           <div
             key={id}
-            className={`p-2 rounded-lg flex flex-col gap-2 items-center justify-center size-fit ${
+            className={`p-2 cursor-pointer rounded-lg flex flex-col gap-2 items-center justify-center size-fit ${
               active && "bg-secondary"
             }`}
             onClick={() => {

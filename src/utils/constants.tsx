@@ -2,6 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import { RiShoppingBag2Fill } from "react-icons/ri";
 import { TbCategoryFilled } from "react-icons/tb";
 import { HiMiniShoppingCart } from "react-icons/hi2";
+import { RiAdminFill } from "react-icons/ri";
 import {
   GiSonicShoes,
   GiHoodie,
@@ -63,11 +64,19 @@ export const bottomNavItems = [
     title: "Search",
     active: false,
   },
+
   {
     id: crypto.randomUUID(),
     icon: <HiMiniShoppingCart size={26} />,
     href: "/shop/cart",
     title: "Cart",
+    active: false,
+  },
+  {
+    id: crypto.randomUUID(),
+    icon: <RiAdminFill size={26} />,
+    href: "/shop/admin",
+    title: "Admin",
     active: false,
   },
 ];
@@ -169,7 +178,7 @@ export const sellerDetails = [
     title: "Thrifts by Omil ☺",
     description: `Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.`,
     category: "clothes",
-    themeColor: "bg-[#FF5733]", 
+    themeColor: "bg-[#FF5733]",
   },
   {
     id: preGeneratedUUIDs[1],
@@ -177,7 +186,7 @@ export const sellerDetails = [
     title: "Gadget Haven",
     description: `Your one-stop shop for the latest in tech. From smartphones to laptops, we offer cutting-edge electronics with unbeatable prices. Enjoy fast shipping and top-notch customer service.`,
     category: "electronics",
-    themeColor: "bg-[#4285F4]", 
+    themeColor: "bg-[#4285F4]",
   },
   {
     id: preGeneratedUUIDs[2],
@@ -185,7 +194,7 @@ export const sellerDetails = [
     title: "Book Nook",
     description: `Dive into the world of books with Book Nook. Whether you’re looking for bestsellers, classics, or academic textbooks, we’ve got you covered. Free shipping on orders over $50.`,
     category: "books",
-    themeColor: "bg-[#34A853]", 
+    themeColor: "bg-[#34A853]",
   },
   {
     id: preGeneratedUUIDs[3],
@@ -193,7 +202,7 @@ export const sellerDetails = [
     title: "Gourmet Delights",
     description: `From farm to table, Gourmet Delights offers fresh and delicious food products. Discover a wide range of organic and gourmet foods. Enjoy the taste of quality with every bite.`,
     category: "food",
-    themeColor: "bg-[#FABB05]", 
+    themeColor: "bg-[#FABB05]",
   },
   {
     id: preGeneratedUUIDs[4],
@@ -201,7 +210,7 @@ export const sellerDetails = [
     title: "Kitchen Essentials",
     description: `Upgrade your kitchen with our high-quality cookware and appliances. From chef knives to blenders, Kitchen Essentials provides everything you need to cook like a pro.`,
     category: "kitchen",
-    themeColor: "bg-[#F4511E]", 
+    themeColor: "bg-[#F4511E]",
   },
   {
     id: preGeneratedUUIDs[5],
@@ -209,7 +218,7 @@ export const sellerDetails = [
     title: "Beauty Bliss",
     description: `Enhance your beauty with our premium skincare and makeup products. Beauty Bliss offers a curated selection of the finest beauty products to help you look and feel your best.`,
     category: "beauty",
-    themeColor: "bg-[#E91E63]", 
+    themeColor: "bg-[#E91E63]",
   },
   {
     id: preGeneratedUUIDs[6],
@@ -217,7 +226,6 @@ export const sellerDetails = [
     title: "Sporty Goods",
     description: `Gear up for your next adventure with Sporty Goods. Find high-quality sports equipment and apparel for all your favorite activities. From running shoes to yoga mats, we’ve got it all.`,
     category: "sports",
-    themeColor: "bg-[#1E88E5]", 
+    themeColor: "bg-[#1E88E5]",
   },
 ];
-

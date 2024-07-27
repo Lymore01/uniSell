@@ -25,7 +25,10 @@ const Orders = () => {
       </div>
       <main>
         <div className="grid grid-cols-1 gap-2 drop-shadow-sm">
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-4">
+            <div className="h-full w-[50%] p-2 items-center justify-center flex">
+              <input type="checkbox" name="" id="" className="size-6 border border-[grey]/20 accent-secondary" />
+            </div>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_dl7UYviYAkh4l73Y-4a_B7FkAVmv4lO-ow&s"
               alt="product 15"
@@ -43,13 +46,13 @@ const Orders = () => {
                 $50.00
               </span>
             </div>
-            <div className="w-full flex items-center justify-center relative ">
+           {/*  <div className="flex items-center justify-center relative">
               <div className=" w-full h-4 flex items-center justify-center">
                 <div className="flex py-2 px-4 cursor-pointer text-base items-center bg-[green]/50 rounded-md">
                   <span className="text-xs text-[green]">paid</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
