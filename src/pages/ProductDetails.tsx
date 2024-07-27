@@ -1,20 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Link, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { FaArrowRight } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { ProductProps } from "../components/Product";
 import NavLayout from "./NavLayout";
-import useCart from "../hooks/useCart";
+import useCart, { CartItem } from "../hooks/useCart";
 
 const ProductDetails = () => {
   const [data, setData] = useState<ProductProps | null>(null);
+  const [toCart, setToCart] = useState<CartItem[]>([]);
   const { id } = useParams();
   const { prod } = useFetch(`https://fakestoreapi.com/products/${id}`);
-
-  
+  const { cart, addItemToCart,notification } = useCart();
 
   useEffect(() => {
     setData(prod);
   }, [prod]);
+
+  const handleAddToCart = () => {
+    addItemToCart(data);
+  };
+
+  if(notification){
+    alert(notification)
+  }
+
+
   return (
     <NavLayout title="" heart={true}>
       <div className="flex flex-col md:flex-row gap-5">
@@ -89,18 +101,22 @@ const ProductDetails = () => {
           <span className="font-semibold text-xl text-[green]/80">
             ${data?.price}
           </span>
-          <Link
-            to={"/shop/cart"}
+          <div
             className="flex py-4 px-6 cursor-pointer rounded-lg text-base items-center bg-primary"
+            onClick={handleAddToCart}
           >
             <span className="text-[white]">Add to cart</span>
-          </Link>
+          </div>
         </div>
+        <Link to={"/shop/cart"} className="w-full items-center space-x-2 justify-end flex">
+          <span>
+            Go to cart
+          </span>
+          <FaArrowRight />
+        </Link>
       </div>
     </NavLayout>
   );
 };
 
 export default ProductDetails;
-
-

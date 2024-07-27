@@ -1,10 +1,11 @@
+skeleton loading
 Finish up on screen responsiveness
 Customize Clerk components
-Dark mode/light mode proper functionality
 Implement role-based routing for signed-in user
-Add cart functionality (i.e., calculating total price, quantity)
-Finish up order details page
 Show admin pages only to users with admin role
 Finish up on add product page
 Add status on order page
 Implement account settings page for admin
+
+
+admin - title, quantity, description, images, price

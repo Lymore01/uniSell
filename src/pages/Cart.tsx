@@ -1,47 +1,64 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../contexts/ThemeProvider";
 import NavLayout from "./NavLayout";
+import useCart from "../hooks/useCart";
 
 const Cart = () => {
+  const { cart, removeItemFromCart } = useCart();
+  const [totals, setTotal] = useState<number>(0)
   const [theme] = useContext(ThemeContext);
+
+  useEffect(() => {
+    const prices = cart.map((item) => item.price);
+    const total = prices.reduce((item, initial) => item + initial, 0);
+    setTotal(total)
+  }, [cart]);
 
   return (
     <NavLayout title="Cart" heart={false}>
       <div className="flex flex-col gap-2 mt-4 relative h-screen">
         {/* product */}
-        <div className="grid grid-cols-3 drop-shadow-md">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_dl7UYviYAkh4l73Y-4a_B7FkAVmv4lO-ow&s"
-            alt="product 15"
-            className="object-center object-cover rounded-lg size-20"
-          />
+        {cart.length == 0 && (
+          <p>No items in the cart!</p>
+        )}
+        {cart?.map((item) => (
+          <div className="grid grid-cols-3 drop-shadow-md" key={item.id}>
+            <img
+              src={item.image}
+              alt="product 15"
+              className="object-center object-cover rounded-lg size-20"
+            />
 
-          <div className="flex flex-col gap-1 items-start justify-center relative">
-            <h1 className="text-sm font-semibold capitalize text-ellipsis line-clamp-1">
-              Nike Air Zoom Pegasus 38
-            </h1>
-            <div className="text-[grey] text-xs truncate line-clamp-1">
-              Thrifts by Mso
-            </div>
-            <span className="font-semibold text-sm text-[green]/80">
-              $50.00
-            </span>
-          </div>
-          <div className="w-full flex items-center justify-center relative">
-            <div className="w-[70%] mx-auto h-auto px-2 flex justify-between border-[grey]/20 border items-center">
-              <span className="text-lg font-semibold cursor-pointer">+</span>
-              <span>1</span>
-              <span className="text-lg font-semibold cursor-pointer">-</span>
-            </div>
-            <div className="absolute inset-0 top-0 right-0 w-full h-4 flex items-end justify-end">
-              <span className="text-[secondary] font-bold cursor-pointer size-auto ">
-                <IoMdCloseCircle className="cursor-pointer" />
+            <div className="flex flex-col gap-1 items-start justify-center relative">
+              <h1 className="text-sm font-semibold capitalize text-ellipsis line-clamp-1">
+                {item.title}
+              </h1>
+              <div className="text-[grey] text-xs truncate line-clamp-1">
+                Thrifts by Mso
+              </div>
+              <span className="font-semibold text-sm text-[green]/80">
+                ${item.price}
               </span>
             </div>
+            <div className="w-full flex items-center justify-center relative">
+              <div className="w-[70%] mx-auto h-auto px-2 flex justify-between border-[grey]/20 border items-center">
+                <span className="text-lg font-semibold cursor-pointer">+</span>
+                <span>1</span>
+                <span className="text-lg font-semibold cursor-pointer">-</span>
+              </div>
+              <div className="absolute inset-0 top-0 right-0 w-full h-4 flex items-end justify-end">
+                <span className="text-[secondary] font-bold cursor-pointer size-auto" onClick={()=>{
+                  removeItemFromCart(item?.id)
+                }}>
+                  <IoMdCloseCircle className="cursor-pointer" />
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
+
         <div
           className={`fixed bottom-0 left-0 md: w-full md:w-[80%] mx-auto ${
             theme === "light" ? "bg-[white]" : "bg-secondary"
@@ -50,7 +67,7 @@ const Cart = () => {
           <hr />
           <div className="flex justify-between items-center mt-4">
             <span className="font-semibold text-3xl text-[green]/80">
-              $50.00
+              ${totals}
             </span>
             <div className="flex justify-between items-center">
               <Link

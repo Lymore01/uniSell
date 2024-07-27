@@ -4,9 +4,12 @@ import CategoryLayout from "../layout/CategoryLayout";
 import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { CategoriesContext } from "../contexts/CategoryContext";
+import { ThemeContext } from "../contexts/ThemeProvider";
 
 const Category = () => {
-  const [currentCategory, setCurrentCategory, categoryData] = useContext(CategoriesContext);
+  const [theme] = useContext(ThemeContext)
+  const [currentCategory, setCurrentCategory, categoryData] =
+    useContext(CategoriesContext);
 
   const { id } = useParams();
   const [path, setPath] = useState("cat");
@@ -20,18 +23,14 @@ const Category = () => {
     setPath(id);
   }, [id, path]);
 
+  useEffect(()=>{
+    console.log(theme)
+  }, [theme])
 
   return (
     <Layout title="Let's go">
-      <CategoryLayout
-        category={path}
-        subCategories={
-          categoryData
-        }
-      >
-        <p>
-          
-        </p>
+      <CategoryLayout category={path} subCategories={categoryData}>
+        <p>category</p>
       </CategoryLayout>
     </Layout>
   );

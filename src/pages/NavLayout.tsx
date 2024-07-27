@@ -22,7 +22,7 @@ const NavLayout = ({
           </Link>
           <h1 className="text-xl font-semibold mx-auto">{title}</h1>
           <span className="flex space-x-2">
-            <GoHeart size={24} className={`${heart === true ? "block" : "hidden"}`} />
+            <GoHeart size={24} className={`${heart === true ? "block" : "hidden"} fill-[red]`} />
             <CiMenuKebab size={24} />
           </span>
         </nav>

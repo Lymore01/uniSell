@@ -1,34 +1,54 @@
 import { useEffect, useState } from "react";
 
-interface CartItem {
+export type CartItem = {
   id: string;
   title: string;
+  image: string;
   price: number;
-  quantity: number;
-}
+};
 
-const useCart = (initialItems: CartItem[]) => {
+const useCart = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [notification, setNotification] = useState<string | null>(null);
 
   useEffect(() => {
     const storedCart = localStorage.getItem("uniSell-cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
-    } else if (initialItems.length > 0) {
-      setCart(initialItems);
-      localStorage.setItem("uniSell-cart", JSON.stringify(initialItems));
     }
-  }, [initialItems]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("uniSell-cart", JSON.stringify(cart));
   }, [cart]);
 
   const addItemToCart = (item: CartItem) => {
-    setCart((prevCart) => [...prevCart, item]);
+    const itemExists = cart.some((cartItem) => cartItem.id === item.id);
+
+    if (itemExists) {
+      setNotification(`${item.title} is already in the cart.`);
+    } else {
+      setCart((prevCart) => [...prevCart, item]);
+      setNotification(`${item.title} has been added to the cart.`);
+    }
+
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
   };
 
-  return { cart, addItemToCart };
+  const removeItemFromCart = (itemId: string) => {
+    const updateCart = cart.filter((cartItem) => cartItem.id !== itemId);
+    setCart(updateCart);
+
+    setNotification(`Item has been removed from the cart.`);
+
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
+  };
+
+  return { cart, addItemToCart,removeItemFromCart, notification };
 };
 
 export default useCart;
