@@ -9,4 +9,4 @@ quantity functionality
 validation for add products form
 remove items from products page
 quantity input validation >0
-add instock, out of stock feature in products 
+add out of stock feature in products 
