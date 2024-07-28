@@ -5,6 +5,7 @@ import NavLayout from "./NavLayout";
 import { useContext, useEffect, useState } from "react";
 import CategoryLayout from "../layout/CategoryLayout";
 import { CategoriesContext } from "../contexts/CategoryContext";
+import ReadMore from "../components/shared/ReadMore";
 
 const Seller = () => {
   const [currentCategory, setCurrentCategory, categoryData] =
@@ -15,6 +16,14 @@ const Seller = () => {
   useEffect(() => {
     setPath(id);
   }, [id]);
+
+  /**
+   * add to cart
+   * checkout
+   * add product
+   * add
+   * clear fulfilled orders
+  */
 
   useEffect(() => {
     const category = sellerDetails.filter((seller) => seller.id === id);
@@ -39,21 +48,16 @@ const Seller = () => {
               </h1>
             </div>
 
-            <div>
-              <p className="line-clamp-3 md:line-clamp-none text-[grey] text-sm">
-                {seller.description}
-              </p>
-              <span className="text-sm capitalize text-[green]/80 font-semibold">
-                Read more
-              </span>
-            </div>
+            <ReadMore>{seller.description}</ReadMore>
 
             <div className="flex space-x-4 overflow-x-scroll">
               <CategoryLayout
                 category={seller.category}
                 subCategories={categoryData}
               >
-                <p></p>
+                <div className="flex-1 h-full">
+
+                </div>
               </CategoryLayout>
             </div>
           </div>

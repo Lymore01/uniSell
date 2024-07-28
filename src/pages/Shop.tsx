@@ -42,7 +42,7 @@ const Shop = () => {
         >
           <div className="flex justify-between items-center">
             <h1 className="text-base font-semibold">Categories</h1>
-            <span className="text-sm cursor-pointer text-[grey]">see all</span>
+            {/* <span className="text-sm cursor-pointer text-[grey]">see all</span> */}
           </div>
           <div
             className={`flex space-x-4 overflow-x-scroll  ${
@@ -143,5 +143,3 @@ export default Shop;
 export type CategoryListProps = {
   title: string;
 };
-
-

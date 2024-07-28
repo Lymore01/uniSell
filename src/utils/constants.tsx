@@ -1,6 +1,5 @@
 import { FaSearch } from "react-icons/fa";
 import { RiShoppingBag2Fill } from "react-icons/ri";
-import { TbCategoryFilled } from "react-icons/tb";
 import { HiMiniShoppingCart } from "react-icons/hi2";
 import { RiAdminFill } from "react-icons/ri";
 import {
@@ -50,11 +49,18 @@ export const bottomNavItems = [
     title: "Shop",
     active: true,
   },
-  {
+  /* {
     id: crypto.randomUUID(),
     icon: <TbCategoryFilled size={26} />,
     href: "/shop/categories",
     title: "Categories",
+    active: false,
+  }, */
+  {
+    id: crypto.randomUUID(),
+    icon: <HiMiniShoppingCart size={26} />,
+    href: "/shop/cart",
+    title: "Cart",
     active: false,
   },
   {
@@ -65,13 +71,6 @@ export const bottomNavItems = [
     active: false,
   },
 
-  {
-    id: crypto.randomUUID(),
-    icon: <HiMiniShoppingCart size={26} />,
-    href: "/shop/cart",
-    title: "Cart",
-    active: false,
-  },
   {
     id: crypto.randomUUID(),
     icon: <RiAdminFill size={26} />,
@@ -227,5 +226,40 @@ export const sellerDetails = [
     description: `Gear up for your next adventure with Sporty Goods. Find high-quality sports equipment and apparel for all your favorite activities. From running shoes to yoga mats, we’ve got it all.`,
     category: "sports",
     themeColor: "bg-[#1E88E5]",
+  },
+];
+
+
+
+export const inputFieldsData = [
+  {
+    prodName: 'name',
+    label: 'Product Name',
+    type: 'text',
+    placeholder: 'Venom',
+  },
+  {
+    prodName: 'description',
+    label: 'Product Description',
+    type: 'textarea', 
+    placeholder: 'Description...',
+  },
+  {
+    prodName: 'price',
+    label: 'Product Price',
+    type: 'number',
+    placeholder: '$200',
+  },
+  {
+    prodName: 'quantity',
+    label: 'Quantity',
+    type: 'number',
+    placeholder: '3',
+  },
+  {
+    prodName: 'size',
+    label: 'Size',
+    type: 'number',
+    placeholder: '42',
   },
 ];

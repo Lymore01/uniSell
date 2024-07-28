@@ -6,13 +6,15 @@ import { useEffect, useState } from "react";
 import { ProductProps } from "../components/Product";
 import NavLayout from "./NavLayout";
 import useCart, { CartItem } from "../hooks/useCart";
+import ReadMore from "../components/shared/ReadMore";
 
 const ProductDetails = () => {
+  const [readMore, setReadMore] = useState<boolean>(false);
   const [data, setData] = useState<ProductProps | null>(null);
   const [toCart, setToCart] = useState<CartItem[]>([]);
   const { id } = useParams();
   const { prod } = useFetch(`https://fakestoreapi.com/products/${id}`);
-  const { cart, addItemToCart,notification } = useCart();
+  const { cart, addItemToCart, notification } = useCart();
 
   useEffect(() => {
     setData(prod);
@@ -22,9 +24,10 @@ const ProductDetails = () => {
     addItemToCart(data);
   };
 
-  if(notification){
-    alert(notification)
+  if (notification) {
+    alert(notification);
   }
+
 
 
   return (
@@ -61,14 +64,9 @@ const ProductDetails = () => {
             </span>
             <h1 className="text-3xl font-semibold capitalize">{data?.title}</h1>
           </div>
-          <div>
-            <p className="line-clamp-3 md:line-clamp-none text-[grey] text-sm">
-              {data?.description}
-            </p>
-            <span className="text-sm capitalize text-[green]/80 font-semibold">
-              Read more
-            </span>
-          </div>
+
+          <ReadMore>{data?.description}</ReadMore>
+
           <div className="flex flex-col space-y-2">
             <div className="flex justify-between">
               <span className="font-semibold">Size</span>
@@ -108,10 +106,11 @@ const ProductDetails = () => {
             <span className="text-[white]">Add to cart</span>
           </div>
         </div>
-        <Link to={"/shop/cart"} className="w-full items-center space-x-2 justify-end flex">
-          <span>
-            Go to cart
-          </span>
+        <Link
+          to={"/shop/cart"}
+          className="w-full items-center space-x-2 justify-end flex"
+        >
+          <span>Go to cart</span>
           <FaArrowRight />
         </Link>
       </div>

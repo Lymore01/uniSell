@@ -2,15 +2,14 @@ import { useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { categories, inputFieldsData } from "../../utils/constants";
+import InputField from "../../components/ui/InputField";
 
 const colors = ["Black", "White", "Red", "Blue", "Green", "yellow", "others"];
-const sizes = [38, 40, 42, 44, 46, "XL", "XXL", "XM", "LG"];
 
 const AddProduct = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploads, setUploads] = useState<string | null>(null);
-  const [selectedColor, setSelectedColor] = useState<string>("Black");
-  const [selectedSize, setSelectedSize] = useState<number>(42);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -35,95 +34,76 @@ const AddProduct = () => {
       <main>
         <section className="p-2 w-full h-auto">
           <h1 className="font-semibold capitalize">General info</h1>
+          {inputFieldsData.map((field) => {
+            if (field.type === "textarea") {
+              return (
+                <div
+                  key={field.prodName}
+                  className="mt-4 w-full flex flex-col gap-[5px]"
+                >
+                  <label
+                    htmlFor={field.prodName}
+                    className="text-sm md:text-base"
+                  >
+                    {field.label}
+                  </label>
+                  <textarea
+                    id={field.prodName}
+                    name={field.prodName}
+                    className="outline-none px-2 w-full bg-[transparent] h-[120px] border border-[grey]/20 placeholder-gray-400"
+                    placeholder={field.placeholder}
+                  ></textarea>
+                </div>
+              );
+            }
+            return (
+              <InputField
+                key={field.prodName}
+                prodName={field.prodName}
+                label={field.label}
+                type={field.type}
+                placeholder={field.placeholder}
+              />
+            );
+          })}
+
           <div className="mt-4 w-full flex flex-col gap-[5px]">
-            <label htmlFor="name" className="text-sm md:text-base">
-              Product Name
+            <label htmlFor="category" className="text-sm md:text-base">
+              Product category
             </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autoComplete="off"
-              className="outline-none px-2 w-full bg-[transparent] h-[60px] border border-[grey]/20 placeholder-gray-400"
-              placeholder="Nike shoes"
-            />
+            <select className="bg-[transparent] outline-none h-[60px] border border-[grey]/20">
+              {categories.map(({ category }) => (
+                <option
+                  value="volvo"
+                  key={category}
+                  className="bg-secondary text-sm"
+                >
+                  {category}
+                </option>
+              ))}
+            </select>
           </div>
-          <div className="mt-4 w-full flex flex-col gap-[5px]">
-            <label htmlFor="description" className="text-sm md:text-base">
-              Product Description
-            </label>
-            <textarea
-              name="description"
-              id="description"
-              className="outline-none px-2 w-full bg-[transparent] h-[120px] border border-[grey]/20 placeholder-gray-400"
-              placeholder="Description..."
-            ></textarea>
-          </div>
-          <div className="mt-4 w-full flex flex-col gap-[5px]">
-            <label htmlFor="price" className="text-sm md:text-base">
-              Product Price
-            </label>
-            <input
-              id="price"
-              name="price"
-              type="number"
-              autoComplete="off"
-              className="outline-none px-2 w-full bg-[transparent] h-[60px] border border-[grey]/20 placeholder-gray-400"
-              placeholder="10"
-            />
-          </div>
-          <div className="mt-4 w-full flex flex-col gap-[5px]">
-            <label htmlFor="quantity" className="text-sm md:text-base">
-              Quantity
-            </label>
-            <input
-              id="quantity"
-              name="quantity"
-              type="number"
-              autoComplete="off"
-              className="outline-none px-2 w-full bg-[transparent] h-[60px] border border-[grey]/20 placeholder-gray-400"
-              placeholder="3"
-            />
-          </div>
+
           <div className="mt-4 w-full flex flex-col gap-[5px]">
             <label className="text-sm md:text-base">Color</label>
-            <div className="flex gap-2 flex-wrap border border-[grey]/20 py-4 px-2">
-              {colors.map((color) => (
-                <label key={color} className="flex items-center gap-1">
-                  <input
-                    type="radio"
-                    name="color"
-                    value={color}
-                    checked={selectedColor === color}
-                    onChange={(e) => setSelectedColor(e.target.value)}
-                  />
+            <select className="bg-[transparent] outline-none h-[60px] border border-[grey]/20">
+              {colors.map((color, index) => (
+                <option
+                  value="volvo"
+                  key={index}
+                  className="bg-secondary text-sm"
+                >
                   {color}
-                </label>
+                </option>
               ))}
-            </div>
+            </select>
           </div>
-          <div className="mt-4 w-full flex flex-col gap-[5px] ">
-            <label className="text-sm md:text-base">Size</label>
-            <div className="flex gap-2 flex-wrap border border-[grey]/20 py-4 px-2">
-              {sizes.map((size) => (
-                <label key={size} className="flex items-center gap-1">
-                  <input
-                    type="radio"
-                    name="size"
-                    value={size}
-                    checked={selectedSize === size}
-                    onChange={(e) => setSelectedSize(Number(e.target.value))}
-                  />
-                  {size}
-                </label>
-              ))}
-            </div>
-          </div>
+
           <div className="mt-4">
             <div className="size-36 rounded-[10px] mb-[20px] sm:mb-0">
               {!selectedFile && (
                 <img
-                  src="https://images.pexels.com/photos/18664914/pexels-photo-18664914/free-photo-of-a-woman-with-a-large-hat-on-her-head.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                  src="https://i.roamcdn.net/hz/pi/listing-thumb-543w/ed437e242b0253c5d16e7ecff9d35924/-/horizon-files-prod/pi/picture/qj4jep9z/40f037f11239df5f3f2aab7388e3e4e95b2777ce.jpg"
                   alt="Default"
                   className="w-full h-full object-cover rounded-[10px] shadow-md"
                 />
@@ -166,6 +146,7 @@ const AddProduct = () => {
             </label>
           </div>
           <hr className="mt-6 mb-6" />
+          {/* button */}
           <div className="flex justify-end items-end mt-4">
             <div className="flex justify-between items-center">
               <div

@@ -18,14 +18,14 @@ const LostPage = () => {
           <img
             src="https://cdn3d.iconscout.com/3d/premium/thumb/grimacing-face-emoji-11210776-8973710.png?f=webp"
             alt="unisell logo"
-            className="size-36"
+            className="size-36 animate-pulse"
           />
         </div>
         <h1 className="text-3xl font-bold">
           Opps! You have found the lost world!
         </h1>
         <p className="font-light">
-          Shop is just a click away. Lets go back and continue our regular life
+          Shop is just a click away. Lets go back and continue our regular life.
         </p>
         <div className="mt-2 uppercase font-base text-lg cursor-pointer">
           <Link to={"/shop"}>Go to shop</Link>

@@ -23,11 +23,21 @@ const Orders = () => {
         />
         <IoSearchOutline size={24} />
       </div>
+      <div>
+        <span className="text-sm text-[grey]">
+          Note: Check the checkbox whenever an order is fulfilled
+        </span>
+      </div>
       <main>
         <div className="grid grid-cols-1 gap-2 drop-shadow-sm">
           <div className="grid grid-cols-4">
             <div className="h-full w-[50%] p-2 items-center justify-center flex">
-              <input type="checkbox" name="" id="" className="size-6 border border-[grey]/20 accent-secondary" />
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                className="size-6 border border-[grey]/20 accent-secondary"
+              />
             </div>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_dl7UYviYAkh4l73Y-4a_B7FkAVmv4lO-ow&s"
@@ -46,7 +56,7 @@ const Orders = () => {
                 $50.00
               </span>
             </div>
-           {/*  <div className="flex items-center justify-center relative">
+            {/*  <div className="flex items-center justify-center relative">
               <div className=" w-full h-4 flex items-center justify-center">
                 <div className="flex py-2 px-4 cursor-pointer text-base items-center bg-[green]/50 rounded-md">
                   <span className="text-xs text-[green]">paid</span>
@@ -56,6 +66,11 @@ const Orders = () => {
           </div>
         </div>
       </main>
+      <div className="flex fixed bottom-0 left-0 w-full h-auto p-4">
+        <button className="w-full h-auto p-2 bg-primary font-semibold text-[black] cursor-pointer rounded-lg">
+          Clear fulfilled orders
+        </button>
+      </div>
     </section>
   );
 };

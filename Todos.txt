@@ -3,9 +3,10 @@ Finish up on screen responsiveness
 Customize Clerk components
 Implement role-based routing for signed-in user
 Show admin pages only to users with admin role
-Finish up on add product page
-Add status on order page
 Implement account settings page for admin
 
-
-admin - title, quantity, description, images, price
+quantity functionality
+validation for add products form
+remove items from products page
+quantity input validation >0
+add instock, out of stock feature in products 
