@@ -28,15 +28,16 @@ const ProductDetails = () => {
     alert(notification);
   }
 
-
-
   return (
     <NavLayout title="" heart={true}>
       <div className="flex flex-col md:flex-row gap-5">
         <div className="flex flex-col md:hidden">
-          <span className="text-[grey] text-xs capitalize font-semibold">
-            {data?.category}
-          </span>
+          <div className="flex justify-between">
+            <span className="text-[grey] text-xs capitalize font-semibold">
+              {data?.category}
+            </span>
+            <span className="capitalize text-[green]">in stock</span>
+          </div>
           <h1 className="text-3xl font-semibold capitalize">{data?.title}</h1>
         </div>
         <div className="space-y-4">

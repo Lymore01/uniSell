@@ -4,9 +4,27 @@ Customize Clerk components
 Implement role-based routing for signed-in user
 Show admin pages only to users with admin role
 Implement account settings page for admin
+proper theme functionality
 
 quantity functionality
 validation for add products form
 remove items from products page
-quantity input validation >0
-add out of stock feature in products 
+quantity input validation > 0
+
+
+backend routes
+admin
+add products
+remove product 
+update product 
+view orders
+confirm orders
+update shop details
+
+user
+place orders
+add items to cart
+receive products
+get products by category
+view shops
+

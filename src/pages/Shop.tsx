@@ -34,7 +34,6 @@ const Shop = () => {
   return (
     <Layout title="Let's go">
       <main className="w-full h-auto flex flex-col gap-4 relative">
-        {/* <div className="w-full rounded-lg bg-primary h-[200px] md:w-[60%] mx-auto "></div> */}
         <div
           className={`gap-4 flex flex-col sticky top-0 left-0 px-2 ${
             theme === "light" ? "bg-[white]" : "bg-secondary"
@@ -42,7 +41,6 @@ const Shop = () => {
         >
           <div className="flex justify-between items-center">
             <h1 className="text-base font-semibold">Categories</h1>
-            {/* <span className="text-sm cursor-pointer text-[grey]">see all</span> */}
           </div>
           <div
             className={`flex space-x-4 overflow-x-scroll  ${
