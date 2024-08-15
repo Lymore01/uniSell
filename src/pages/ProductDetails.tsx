@@ -69,6 +69,12 @@ const ProductDetails = () => {
           <ReadMore>{data?.description}</ReadMore>
 
           <div className="flex flex-col space-y-2">
+          <div className="flex justify-between">
+              <span className="font-semibold">Seller</span>
+              <div className="flex py-2 px-3 cursor-pointer rounded-lg text-sm items-center">
+                <span className="text-[black]">Thrifts by Omil</span>
+              </div>
+            </div>
             <div className="flex justify-between">
               <span className="font-semibold">Size</span>
               <div className="flex py-2 px-3 cursor-pointer rounded-lg bg-primary text-sm items-center">
@@ -93,7 +99,7 @@ const ProductDetails = () => {
               <span className="text-[white]">Add to cart</span>
             </Link>
           </div>
-        </div>
+       
 
         <hr />
         <div className="flex md:hidden justify-between items-center">
@@ -114,6 +120,7 @@ const ProductDetails = () => {
           <span>Go to cart</span>
           <FaArrowRight />
         </Link>
+        </div>
       </div>
     </NavLayout>
   );

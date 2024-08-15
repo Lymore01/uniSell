@@ -1,11 +1,6 @@
 import useCart from "../../hooks/useCart";
 import { bottomNavItems } from "../../utils/constants";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/clerk-react";
+
 
 const BottomNav = () => {
   const { cart } = useCart();
@@ -37,12 +32,7 @@ const BottomNav = () => {
             <h1 className="capitalize font-semibold hidden">{title}</h1>
           </div>
         ))}
-        <SignedOut>
-          <CustomSignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+       
       </div>
       {/* search */}
     </div>
@@ -53,10 +43,4 @@ export default BottomNav;
 
 // TODO: Add search functionality
 
-const CustomSignInButton: React.FC = () => (
-  <SignInButton mode="modal">
-    <button className="flex py-4 px-6 cursor-pointer rounded-lg text-base items-center bg-primary">
-      <span className="text-[black]">Sign In</span>
-    </button>
-  </SignInButton>
-);
+

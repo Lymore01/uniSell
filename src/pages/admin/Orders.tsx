@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Orders = () => {
   return (
-    <section className="p-6 flex flex-col gap-5 relative h-screen h-max-screen">
+    <section className="p-6 flex flex-col gap-5 relative h-screen h-max-screen md:w-[80%] mx-auto">
       <nav className="flex flex-row justify-between">
         <Link to={"/shop/admin"}>
           <IoIosArrowBack size={24} />
@@ -15,7 +15,7 @@ const Orders = () => {
           <CiMenuKebab size={24} />
         </span>
       </nav>
-      <div className="w-full p-4 bg-[transparent] h-auto justify-between flex items-center border border-[grey]/10">
+      <div className="w-full p-4 bg-[transparent] h-auto justify-between flex items-center border border-[grey]/10 ">
         <input
           type="text"
           placeholder="search..."
@@ -28,7 +28,7 @@ const Orders = () => {
           Note: Check the checkbox whenever an order is fulfilled
         </span>
       </div>
-      <main>
+      <main className="">
         <div className="grid grid-cols-1 gap-2 drop-shadow-sm">
           <div className="grid grid-cols-4">
             <div className="h-full w-[50%] p-2 items-center justify-center flex">
@@ -66,8 +66,8 @@ const Orders = () => {
           </div>
         </div>
       </main>
-      <div className="flex fixed bottom-0 left-0 w-full h-auto p-4">
-        <button className="w-full h-auto p-2 bg-primary font-semibold text-[black] cursor-pointer rounded-lg">
+      <div className="flex fixed bottom-0 right-0 w-full h-auto p-4 md:w-[80%] items-end justify-end mx-auto">
+        <button className="w-full md:w-fit h-auto p-2 bg-primary font-semibold text-[black] cursor-pointer rounded-lg">
           Clear fulfilled orders
         </button>
       </div>

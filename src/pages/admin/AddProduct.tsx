@@ -13,6 +13,7 @@ const AddProduct = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+	console.log(file)
     if (file) {
       setSelectedFile(file);
       setUploads(URL.createObjectURL(file));
@@ -20,7 +21,7 @@ const AddProduct = () => {
   };
 
   return (
-    <section className="p-6 flex flex-col gap-5 relative h-screen">
+    <section className="p-6 flex flex-col gap-5 relative h-screen h-max-screen md:w-[80%]  md:rounded-lg mx-auto">
       <nav className="flex flex-row justify-between">
         <Link to="/shop/admin">
           <IoIosArrowBack size={24} />
@@ -31,7 +32,7 @@ const AddProduct = () => {
         </span>
       </nav>
 
-      <main>
+      <main className="mx-auto p-0 w-full md:w-[60%] md:shadow-lg md:p-4">
         <section className="p-2 w-full h-auto">
           <h1 className="font-semibold capitalize">General info</h1>
           {inputFieldsData.map((field) => {
@@ -118,7 +119,7 @@ const AddProduct = () => {
             </div>
             <button
               type="submit"
-              className="text-black font-bold py-2 px-4 rounded cursor-pointer border border-slate-300 hidden flex-row gap-[20px] bg-green-500 sm:block"
+              className="text-black font-bold py-2 px-4 rounded cursor-pointer border border-slate-300 hidden flex-row gap-[20px] bg-green-500 sm:block md:mt-4 md:mb-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

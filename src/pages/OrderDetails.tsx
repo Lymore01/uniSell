@@ -13,7 +13,7 @@ const OrderDetails = () => {
   const { cart } = useCart();
 
   return (
-    <section className="p-6 flex flex-col gap-5 relative ">
+    <section className="p-6 flex flex-col gap-5 relative md:w-[80%] mx-auto">
       <nav className="flex flex-row justify-between">
         <Link to={"/shop/cart"}>
           <IoIosArrowBack size={24} />
@@ -23,7 +23,7 @@ const OrderDetails = () => {
           <CiMenuKebab size={24} />
         </span>
       </nav>
-      <div className="flex flex-col gap-2 mt-4 relative h-screen drop-shadow-md">
+      <div className="flex flex-col gap-2 mt-4 relative h-screen drop-shadow-md ">
         <div className="grid grid-rows-2 gap-4">
           <table
             className={`min-w-full ${

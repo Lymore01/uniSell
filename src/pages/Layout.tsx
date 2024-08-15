@@ -6,11 +6,11 @@ const Layout = ({ children, title }: {
   title:string
 }) => {
   return (
-    <main className="relative w-full md:w-[80%] mx-auto h-screen p-4 flex flex-col justify-between gap-4">
+    <main className="relative w-full md:w-[80%]  mx-auto h-screen p-4 flex flex-col justify-between gap-4">
       <nav className="w-full h-auto">
         <TopNav title={title}/>
       </nav>
-      <main className="h-max-screen items-start justify-start flex  flex-col overflow-y-scroll flex-1">
+      <main className="h-max-screen items-start justify-start flex flex-col overflow-y-scroll flex-1">
         {children}
       </main>
       <footer className="w-full h-auto  items-center justify-center">

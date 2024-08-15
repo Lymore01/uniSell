@@ -18,20 +18,21 @@ const Cart = () => {
 
   return (
     <NavLayout title="Cart" heart={false}>
-      <div className="flex flex-col gap-2 mt-4 relative h-screen">
+      <div className="flex flex-row gap-2 mt-4 h-screen">
         {/* product */}
         {cart.length == 0 && (
           <p>No items in the cart!</p>
         )}
+        <p>products</p>
         {cart?.map((item) => (
-          <div className="grid grid-cols-3 drop-shadow-md" key={item.id}>
+          <div className="flex flex-row gap-6" key={item.id}>
             <img
               src={item.image}
               alt="product 15"
               className="object-center object-cover rounded-lg size-20"
             />
 
-            <div className="flex flex-col gap-1 items-start justify-center relative">
+            <div className="flex flex-col gap-1 items-start justify-start relative">
               <h1 className="text-sm font-semibold capitalize text-ellipsis line-clamp-1">
                 {item.title}
               </h1>
@@ -42,7 +43,7 @@ const Cart = () => {
                 ${item.price}
               </span>
             </div>
-            <div className="w-full flex items-center justify-center relative">
+            <div className="w-full flex items-start justify-start relative">
               <div className="w-[70%] mx-auto h-auto px-2 flex justify-between border-[grey]/20 border items-center">
                 <span className="text-lg font-semibold cursor-pointer">+</span>
                 <span>1</span>
@@ -60,7 +61,7 @@ const Cart = () => {
         ))}
 
         <div
-          className={`fixed bottom-0 left-0 md: w-full md:w-[80%] mx-auto ${
+          className={`h-screen mx-auto ${
             theme === "light" ? "bg-[white]" : "bg-secondary"
           } p-4`}
         >
